@@ -1,0 +1,104 @@
+{% extends 'admin.html.twig' %}
+
+
+
+{% block body %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+<section class="container">
+<h2 class="text-uppercase text-center text-primary">Gestion accueil titre millieu de page</h2>
+    {{ form_start(formAccueilTM) }}
+    {{ form_widget(formAccueilTM) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formAccueilTM) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion accueil texte millieu de page</h2>
+    {{ form_start(formAccueilTextM) }}
+    {{ form_widget(formAccueilTextM) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formAccueilTextM) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion accueil titre pied de page</h2>
+    {{ form_start(formAccueilTF) }}
+    {{ form_widget(formAccueilTF) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formAccueilTF) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion accueil texte pied de page</h2>
+    {{ form_start(formAccueilTexteF) }}
+    {{ form_widget(formAccueilTexteF) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formAccueilTexteF) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page devis</h2>
+    {{ form_start(formDevisMain) }}
+    {{ form_widget(formDevisMain) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formDevisMain) }}
+    <hr style="height:10px" class="text-warning">
+<h2 class="text-uppercase text-center text-primary">Gestion page particuliers</h2>
+    {{ form_start(formParticuliers) }}
+    {{ form_widget(formParticuliers) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formParticuliers) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page transfert bureaux</h2>
+    {{ form_start(formTransfert) }}
+    {{ form_widget(formTransfert) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formTransfert) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page monte meubles</h2>
+    {{ form_start(formMonteMeubles) }}
+    {{ form_widget(formMonteMeubles) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formMonteMeubles) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page garde meubles</h2>
+    {{ form_start(formGardeMeubles) }}
+    {{ form_widget(formGardeMeubles) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formGardeMeubles) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page jour demenagement</h2>
+    {{ form_start(formJourDem) }}
+    {{ form_widget(formJourDem) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formJourDem) }}
+    <hr style="height:10px" class="text-warning">
+    <h2 class="text-uppercase text-center text-primary">Gestion page preparation</h2>
+    {{ form_start(formPreparation) }}
+    {{ form_widget(formPreparation) }}
+    <section class="text-center">
+        <button class="btn btn-primary text-uppercase">Ajouter</button>
+    </section>
+    {{ form_end(formPreparation) }}
+    <hr style="height:10px" class="text-warning">
+<section>
+{% else %}
+<link rel="stylesheet" href="{{ absolute_url("/css/index.css") }}">
+<section class="text-center">
+<h1 class="text-warning text-uppercase">Accès reservé</h1>
+<img id="interdit" src="../image/acces-interdit.png" alt="">
+</section>
+{% endif %}
+{% endblock %}

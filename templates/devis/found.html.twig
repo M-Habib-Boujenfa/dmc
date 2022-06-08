@@ -1,0 +1,22 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+<section class="container d-flex justify-content-around flex-wrap mt-2" >
+{% for devis in foundDevis %}
+
+     <div class="card text-white bg-primary mb-3" style="width: 20rem;">
+     <div class="card-header text-center bg-warning text-uppercase"><a class="text-decoration-none text-white   "  href="{{path('dashboard',{id:devis.id})}}"> {{ devis.nom }} {{ devis.prenom }} </a></div>
+     <div class="card-body text-center">
+
+
+    <p class="card-text"><div>{{ devis.email }}</div></p>
+    <p class="card-text"><div>{{ devis.telephone }}</div></p>
+    <p class="card-text"><div>{{ devis.dateDeDepart }}</div></p>
+
+  </div>
+</div>
+
+{% endfor %}
+</section>
+
+{% endblock %}

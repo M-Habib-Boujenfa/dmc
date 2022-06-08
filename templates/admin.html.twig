@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DMC</title>
+        <link rel="stylesheet" href="{{ absolute_url('/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ absolute_url('/css/admin.css') }}">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary container">
+      <div div class="container-fluid">
+        <div id="logo">
+          <img src="{{ absolute_url('/image/logo.png') }}" alt=""/>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item mx-3 ">
+              <a href="{{ path('search') }}">
+              <button type="button" class="btn btn-outline-warning border-white text-white fs-4 text-uppercase">Recherche</button>
+              </a>
+            </li>
+            <li class="nav-item mx-3 ">
+              <a href="{{ path('untreated') }}">
+              <button type="button" class="btn btn-outline-warning border-white text-white fs-4 text-uppercase">Devis à traiter</button>              
+              </a>
+            </li>
+            <li class="nav-item mx-3 ">
+              <a href="{{ path('app_user_index') }}">
+              <button type="button" class="btn btn-outline-warning text-white fs-4 text-uppercase">Gestion des utilisateurs</button>              
+              </a>
+            </li>
+            <li class="nav-item mx-3 ">
+              <a href="{{ path('gestion') }}">
+              <button type="button" class="btn btn-outline-warning text-white fs-4 text-uppercase">Gestion du site</button>              
+              </a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </nav>
+    {% if app.user %}
+<div class="text-end container">
+<p class="text-primary text-uppercase" >Bonjour  {{ app.user.username }} vous êtes connecté </p>
+</div>
+<div class="text-end container">
+<button type="button" class="btn btn-warning"><a class="text-decoration-none text-white text-uppercase" href="{{path('app_logout')}}">Déconnexion</a></button>
+</div>
+{% endif %}
+<hr>
+<main>
+        {% block body %}{% endblock %}
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+    </body>
+</html>

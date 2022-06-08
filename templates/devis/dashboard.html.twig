@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+
+<h2  class=" text-center text-primary"> TABLEAU DE BORD</h2>
+<hr>
+<section class="container d-flex justify-content-around flex-wrap" >
+ <div class="card text-white bg-primary mb-3" style="width: 20rem;">
+        <div class="text-uppercase text-center bg-warning"><p>{{ devis.nom }} {{ devis.prenom }}</p></div>
+        <div class="card-body text-center">
+            <p class="card-text "><div>{{ devis.email }}</div></p>
+            <p class="card-text"><div>{{ devis.telephone }}</div></p>
+            <p class="card-text"><div>{{ devis.adresseDeDepart }}</div></p>
+            </div>
+</div>
+</section>
+<section class="container" >
+    <article>
+        <div class="d-grid gap-2">
+               <button class="btn btn-lg btn-primary" type="button"><a class=" text-decoration-none text-white text-uppercase " href="{{ path('update_devis',{id : devis.id}) }}">Établir  devis</a></button>
+</div>
+    </article>
+    {% if devis.idTarif and devis.idPrestation and devis.idAssurance %}
+<hr>
+    <article>
+        <div class="d-grid gap-2">
+               <button class="btn btn-lg btn-primary" type="button"><a class=" text-decoration-none text-white text-uppercase " href="{{ path('mailDevis',{id : devis.id}) }}">Envoyer le mail  devis</a></button>
+        </div>
+        </article>
+        <hr>
+    <article>
+        <div class="d-grid gap-2">
+               <button class="btn btn-lg btn-primary" type="button"><a class=" text-decoration-none text-white text-uppercase " href="{{ path('pdfDevis',{id : devis.id}) }}">Générer le pdf devis</a></button>
+
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="d-grid gap-2">
+               <button class="btn btn-lg btn-warning" type="button"><a class=" text-decoration-none text-white text-uppercase " href="{{ path('mailFacture',{id : devis.id}) }}">Envoyer le mail  facture</a></button>
+        </div>
+        </article>
+   <hr>
+    <article>
+       <div class="d-grid gap-2">
+               <button class="btn btn-lg btn-warning" type="button"><a class=" text-decoration-none text-white text-uppercase "  href="{{ path('pdfFacture',{id : devis.id}) }}">Générer le pdf  facture</a></button>
+        </div>
+
+        </article>
+    {% endif %}
+</section>
+{% endblock %}

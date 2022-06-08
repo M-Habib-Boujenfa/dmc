@@ -1,0 +1,50 @@
+
+
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+<section class="container">
+    <h2 class="text-center text-primary" >LISTE DES UTILISATEURS</h2>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Rôle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    <a class="text-decoration-none text-white" href="{{ path('app_user_show', {'id': user.id}) }}"><button type="button" class="btn btn-primary btn-sm">Afficher utilisateur</button></a>
+                    <a class="text-decoration-none text-white" href="{{ path('app_user_edit', {'id': user.id}) }}"><button type="button" class="btn btn-primary btn-sm">Attribution</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+    <a class="text-decoration-none text-primary" href="{{ path('app_register') }}"><button type="submit" class="btn btn-outline-warning text-primary text-uppercase">Créer un nouvel utilisateur</button></a>
+    </div>
+</section>
+{% else %}
+<link rel="stylesheet" href="{{ absolute_url("/css/index.css") }}">
+<section class="text-center">
+<h1 class="text-warning text-uppercase">Accès reservé</h1>
+<img id="interdit" src="../image/acces-interdit.png" alt="">
+</section>
+{% endif %}
+{% endblock %}
+

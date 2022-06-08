@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+{% if volume %}
+<link rel="stylesheet" href="../css/styleDevis.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+{% else  %}
+<link rel="stylesheet" href="css/styleDevis.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+{% endif %}
+{% endblock %}
+
+
+{% block logo %}
+{% if volume %}
+<img src="../image/logo.PNG" class="navbar-brand" alt="" />
+{% else %}
+<img src="image/logo.PNG" class="navbar-brand" alt="" />
+{% endif %}
+{% endblock  %}
+
+
+
+
+{% block body %}
+<h2 class="text-primary mt-3 text-center text-uppercase">Demandez Votre Devis Rapide en ligne</h2>
+<hr>
+<section id="flexColumn" class="d-flex justify-content-between">
+<section id="imgCenter" class="d-flex flex-column justify-content-end">
+        <article class="textDevis text-center">
+            <p class="marginText text-primary fs-3">{{ texteDevis | raw}}</p>
+        </article>
+        <img class="mt-1" id="imageDevis" src="image/devis serrage main.png" alt="">
+    </section>
+<section id="devisClient">
+    {{ form_start(formView)}}
+            <fieldset class="colorGrey">
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.nom, 'Nom', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.nom,{'class': 'test'})}}
+                    <small id="test">{{ messageNom }}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.prenom, 'Prenom', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.prenom)}}
+                    <small id="testP">{{messagePrenom }}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.email, 'Email', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.email)}}
+                    <small id="testE">{{messageEmail }}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.telephone, 'Telephone', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}    
+                    {{form_row (formView.telephone)}}
+                    <small id="testT">{{messageTelephone}}</small>
+                </article>
+            </section>
+            <p class='text-warning text-uppercase'>Départ de : </p>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.dateDeDepart, 'Date de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.dateDeDepart)}}
+                    <small id="testDp">{{messageDateDeDepart}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.adresseDeDepart, 'Adresse de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.adresseDeDepart)}}
+                    <small id="testAD">{{messageadresseDepart}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.codePostalDeDepart, 'Code postal de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.codePostalDeDepart)}}
+                    <small id="testCpd">{{messageCodePostalDepart}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.villeDeDepart, 'Ville de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.villeDeDepart)}}
+                    <small id="testVD">{{messageVilleDepart}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.etageDeDepart, 'Etage de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.etageDeDepart)}}
+                    <small id="testEd">{{messageEtageDepart}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.ascenseurDepart, 'Ascenseur de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.ascenseurDepart)}}
+                </article>
+            </section>
+             <p class='text-warning text-uppercase'>Arrivée à : </p>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.dateArrivee, 'Date arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.dateArrivee)}}
+                    <small id="testDa">{{messageDateArrivee}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.adresseArrivee, 'Adresse arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.adresseArrivee)}}
+                    <small id="testAV">{{messageadresseArrivee}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.codePostalArrivee, 'Code postal arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formView.codePostalArrivee)}}
+                    <small id="testCpa">{{messageCodePostalArrivee}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.villeArrivee, 'Ville arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formView.villeArrivee)}}
+                    <small id="testVA">{{messageVilleArrivee}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.etageArrivee, 'Etage arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formView.etageArrivee)}}
+                    <small id="testEa">{{messageEtageArrivee}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.ascenseurArrivee, 'Ascenseur arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formView.ascenseurArrivee)}}
+                </article>
+            </section>
+            <section class="d-flex align-items-center">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formView.volume, 'Volume', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row(formView.volume, {'value' : volume})}}
+                    <small id="testV">{{messageVolume}}</small>
+                </article>
+                <article class="input50 form-group text-center">
+                    <a class="text-decoration-none text-white" href="/element"><button type="button" class="btn btn-outline-primary text-uppercase volumeHeight">Calculer un volume</button></a>
+                </article> 
+            </section>
+            {{ form_widget(formView)}}
+            <p>
+                <button class="btn btn-lg btn-warning" type="submit">DEMANDEZ VOTRE DEVIS GRATUIT</button>
+            </p> 
+            </fieldset>
+            {{ form_end(formView)}}  
+</section>
+</section>
+{% endblock %}
+
+{% block js %}
+{% if volume %}
+<script src="../js/localStorage.js"></script>
+{% else  %}
+<script src="js/localStorage.js"></script>
+{% endif %}
+     
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block css %} <link rel="stylesheet" href="{{ absolute_url('/css/showUser.css') }}"> {% endblock %}
+{% block body %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+<section class="container">
+
+    <h2 class=" text-center text-primary">UTILISATEUR</h2>
+<hr>
+    <table class="table">
+        <tbody>
+            <tr class="text-center">
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr class="text-center">
+                <th>Nom</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr class="text-center">
+                <th>Role</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr class="text-center">
+                <th>Mot de passe</th>
+                <td>{{ user.password }}</td>
+            </tr>
+        </tbody>
+    </table>
+<section class='text-center d-flex justify-content-evenly'>
+      <button class="btn  btn-primary" type="button"><a  class=" text-decoration-none text-white text-uppercase "href="{{ path('app_user_index') }}">Retour à la liste</a></button>
+
+     <button class="btn btn-primary" type="button"> <a  class=" text-decoration-none text-white text-uppercase "href="{{ path('app_user_edit', {'id': user.id}) }}">Attribution</a></button>
+</section>
+<hr>
+    {{ include('user/_delete_form.html.twig') }}
+    </section>
+    {% else %}
+<link rel="stylesheet" href="{{ absolute_url("/css/index.css") }}">
+<section class="text-center">
+<h1 class="text-warning text-uppercase">Accès reservé</h1>
+<img id="interdit" src="../image/acces-interdit.png" alt="">
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+.buttonCatSize {
+  width: 110%;
+}
+
+.buttonVolume {
+  width: 70%;
+}
+
+.buttonConseils {
+  width: 100%;
+  font-size: revert;
+}
+
+.sizeLi {
+  width: 200px;
+}

@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<section class="container mt-3">
+<ul class= "d-flex justify-content-around list-unstyled row" >
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsSalon()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Salon</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsSalleAmanger()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Salle à manger</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsChambre()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Chambre</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsBureau()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Bureau</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsCuisine()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Cuisine</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsSalleDeBain()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Salle De Bain</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsGarage()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Garage</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsExterieur()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Exterieur</button>
+</li>
+<li class="col-4 col-sm-4 col-md-6 col-lg-1" onclick="showElementsDivers()">
+<button type="button" class="btn btn-outline-primary buttonCatSize">Divers</button>
+</li>
+</ul>
+<div>
+<h3 class="text-primary text-center " >CALCULER VOTRE VOLUME</h3>
+</div>
+<div id="volume" style="text-align: center" > 0 M³ </div>
+<hr>
+<div id = "elements" class= "d-flex justify-content-around flex-wrap">
+</div>
+<hr>
+<div class= "d-flex justify-content-around" >
+    <a class="text-decoration-none text-warning" id='lienVolume' href="/devis"><button type="button" class="btn btn-outline-primary buttonVolume">DEVIS AVEC VOTRE VOLUME</button></a>
+    <a class="text-decoration-none text-warning" href="/element"><button type="button" class="btn btn-outline-primary buttonVolume">METTRE VOTRE VOLUME À ZÉRO</button></a>
+</div>
+</section>
+
+{% endblock %}
+{% block js %}<script src="js/scriptVolume.js"></script>{% endblock %}

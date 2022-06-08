@@ -1,0 +1,15 @@
+{% extends 'conseil.html.twig'%}
+
+{% block body %}
+<header class="text-center">
+    <h2 class="text-primary text-uppercase">Le jour du déménagement</h2>
+</header>
+<main>
+    <section class="text-center">
+        <img src="image/jourdemenagement1.jpg" alt="">
+    </section>
+    <hr>
+    <section>
+    {{ textjourDem | raw }}
+ </section>
+{% endblock %}

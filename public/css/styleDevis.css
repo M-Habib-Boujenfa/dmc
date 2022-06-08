@@ -1,0 +1,101 @@
+.erreur {
+  color: #d08427;
+}
+
+.input50 {
+  width: 50%;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+}
+
+p,
+div,
+.prepareDemenagement {
+  text-align: center;
+}
+button,
+.quiSommeNous {
+  width: 100%;
+}
+
+.volumeHeight {
+  height: 99px;
+}
+
+.imgAccueil {
+  width: 440;
+  height: 440px;
+  margin-bottom: 50px;
+}
+
+.mBottom {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+.mTop {
+  margin-top: 55px;
+}
+
+.colorGrey {
+  background-color: rgb(194, 194, 194) !important;
+}
+
+.backGround {
+  background-color: rgba(245, 235, 235, 0.596);
+}
+
+.arrondi {
+  border-radius: 1%;
+}
+.contact {
+  width: 53%;
+}
+
+.topAccueil {
+  width: 101%;
+}
+
+#imageDevis {
+  width: 500px;
+  height: 700px;
+}
+
+#devisClient {
+  width: 60%;
+}
+
+.textDevis {
+  width: 480px;
+  height: 370px;
+}
+
+.marginText {
+  margin-top: 50px !important;
+}
+
+@media (max-width: 991px) {
+  .contact {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  #titreFormDevis {
+    font-size: 30px;
+  }
+  #logo {
+    width: 100%;
+    margin: auto;
+  }
+  #flexColumn {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #devisClient {
+    width: 100%;
+  }
+}

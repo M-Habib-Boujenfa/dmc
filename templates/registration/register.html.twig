@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block css %} <link rel="stylesheet" href="css/register.css"> {% endblock %}
+{% block body %}
+<section class="container">
+    <h2 class=" text-center text-primary">AJOUTER NOUVEL UTILISATEUR</h2>
+<hr>
+    {{ form_start(registrationForm) }}
+    <div class=" d-flex justify-content-around "  >
+        {{ form_row(registrationForm.username,{
+              label: 'Nom'
+        }
+        ) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+        </div>
+        <hr>
+        <article     class=" d-flex justify-content-around " style="margin: 20px">
+        {{ form_row(registrationForm.agreeTerms,{
+              label: 'Confirmer'
+        }) }}
+
+</article>
+      <hr>
+
+
+<div class="d-grid gap-2">
+<button  type="submit" class="btn btn-lg btn-primary text-uppercase" type="button">Ajouter</button>
+</div>
+
+    {{ form_end(registrationForm) }}
+
+
+</section>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'admin.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="../css/styleDevis.css">
+{% endblock %}
+
+{% block body %}
+<h2 class="text-center text-primary text-uppercase">établir le devis client</h2>
+<section class="container">
+<hr>
+    <section class="mb-3">
+    {{ form_start(formDevis)}}
+            <fieldset class="colorGrey">
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.nom, 'Nom', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.nom)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.prenom, 'Prenom', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.prenom)}}
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.email, 'Email', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.email)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.telephone, 'Telephone', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}    
+                    {{form_row (formDevis.telephone)}}
+                </article>
+            </section>
+            <p class='text-warning text-uppercase'>Départ de : </p>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.dateDeDepart, 'Date de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.dateDeDepart)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.adresseDeDepart, 'Adresse de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.adresseDeDepart)}}
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.codePostalDeDepart, 'Code postal de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.codePostalDeDepart)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.villeDeDepart, 'Ville de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.villeDeDepart)}}
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.etageDeDepart, 'Etage de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.etageDeDepart)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.ascenseurDepart, 'Ascenseur de depart', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.ascenseurDepart)}}
+                </article>
+            </section>
+             <p class='text-warning text-uppercase'>Arrivée à : </p>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.dateArrivee, 'Date arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.dateArrivee)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.adresseArrivee, 'Adresse arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.adresseArrivee)}}
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.codePostalArrivee, 'Code postal arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+                    {{form_row (formDevis.codePostalArrivee)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.villeArrivee, 'Ville arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formDevis.villeArrivee)}}
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.etageArrivee, 'Etage arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formDevis.etageArrivee)}}
+                </article>
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.ascenseurArrivee, 'Ascenseur arrivée', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formDevis.ascenseurArrivee)}}
+                </article>
+            </section>
+            <section class="d-flex align-items-center justify-content-center mb-3">
+                <article class="input50 form-group text-center">
+                    {{ form_label(formDevis.volume, 'Volume', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}                
+                    {{form_row (formDevis.volume)}}
+                </article>
+            </section>
+            {{ form_widget(formDevis)}}
+            </fieldset>
+            {{ form_end(formDevis)}}  
+        </section>
+    <h2 class="text-center text-primary text-uppercase">Tarification</h2>
+    <hr>
+    {{ form_start(formTarif) }}
+    <fieldset class="colorGrey">
+        <article class="text-center form-group">
+            {{ form_label(formTarif.date, 'Date', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }} 
+            {{ form_row(formTarif.date) }}
+        </article>
+        <article class="text-center form-group">
+            {{ form_label(formTarif.commentaire, 'Commentaire', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }} 
+            {{ form_row(formTarif.commentaire) }}
+        </article>
+        <article class="text-center form-group">
+            {{ form_label(formTarif.acompte, 'Acompte', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }} 
+            {{ form_row(formTarif.acompte) }}
+        </article>
+        <article class="text-center form-group">
+            {{ form_label(formTarif.tarifHt, 'Tarif Ht', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }} 
+            {{ form_row(formTarif.tarifHt) }}
+        </article>
+    {{ form_widget(formTarif) }}
+    <article class="text-center form-group">
+            {{ form_label(formPrestation.prestation, 'Prestation', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+            {{ form_row(formPrestation.prestation) }}
+        </article>
+        <article class="text-center form-group">
+            {{ form_label(formAssurance.assurance, 'Assurance', {'label_attr': {'class': 'form-label mt-4 text-primary'}}) }}
+            {{ form_row(formAssurance.assurance) }}
+        </article>
+        <button class="btn btn-lg btn-warning text-uppercase mt-2 mb-1">Généré le devis</button>
+    {{ form_end(formTarif) }}
+    </fieldset>
+</section>
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/styleDevis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+{% endblock %}
+
+{% block body %}
+<main>
+<section class="d-flex justify-content-between mt-5 row topAccueil">
+    <section class="contact border-warning mx-1 col-lg-5 col-sm-12">
+        <article class="text-center">
+            <img class="imgAccueil" src='image/photoAccueil.jpg'></img>
+        </article>
+        <section class="quiSommeNous">
+        <div class="card text-white bg-primary mb-5">
+            <div class="card-header bg-warning text-uppercase fs-2">{{ textAccueilTM | raw}}</div>
+            <div class="card-body container">
+                <p class="card-text fs-5 mb-2">{{ textAccueilTexteM | raw }}</p>
+
+            </div>
+        </div>
+</section>
+        <article class="prepareDemenagement">
+            <a href="{{ path('particuliers') }}"><button class="btn btn-lg btn-warning text-uppercase">Nos conseils pour reussir votre déménagement</button></a>
+        </article>
+    </section>
+    <section class="colorGrey arrondi text-primary text-center col-lg-5 col-sm-12">
+        <article class="mb-2">
+            <p id="titreFormDevis">Devis en ligne</p>
+        </article>
+        <article>
+            {{ form_start(formView)}}
+            <fieldset>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.nom, 'Nom', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.nom,{'class': 'test'})}}
+                    <small id="test">{{ messageNom }}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.prenom, 'Prenom', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.prenom)}}
+                    <small id="testP">{{messagePrenom }}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.email, 'Email', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.email)}}
+                    <small id="testE">{{messageEmail }}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.telephone, 'Telephone', {'label_attr': {'class': 'form-label mt-4'}}) }}    
+                    {{form_row (formView.telephone)}}
+                    <small id="testT">{{messageTelephone}}</small>
+                </article>
+            </section>
+            <p>Départ de : </p>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.dateDeDepart, 'Date de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.dateDeDepart)}}
+                    <small id="testDp">{{messageDateDeDepart}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.adresseDeDepart, 'Adresse de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.adresseDeDepart)}}
+                    <small id="testAD">{{messageadresseDepart}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.codePostalDeDepart, 'Code postal de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.codePostalDeDepart)}}
+                    <small id="testCpd">{{messageCodePostalDepart}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.villeDeDepart, 'Ville de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.villeDeDepart)}}
+                    <small id="testVD">{{messageVilleDepart}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.etageDeDepart, 'Etage de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.etageDeDepart)}}
+                    <small id="testEd">{{messageEtageDepart}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.ascenseurDepart, 'Ascenseur de depart', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.ascenseurDepart)}}
+                </article>
+            </section>
+             <p>Arrivée à : </p>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.dateArrivee, 'Date arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.dateArrivee)}}
+                    <small id="testDa">{{messageDateArrivee}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.adresseArrivee, 'Adresse arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.adresseArrivee)}}
+                    <small id="testAV">{{messageadresseArrivee}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.codePostalArrivee, 'Code postal arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}
+                    {{form_row (formView.codePostalArrivee)}}
+                    <small id="testCpa">{{messageCodePostalArrivee}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.villeArrivee, 'Ville arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}                
+                    {{form_row (formView.villeArrivee)}}
+                    <small id="testVA">{{messageVilleArrivee}}</small>
+                </article>
+            </section>
+            <section class="d-flex">
+                <article class="input50 form-group">
+                    {{ form_label(formView.etageArrivee, 'Etage arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}                
+                    {{form_row (formView.etageArrivee)}}
+                    <small id="testEa">{{messageEtageArrivee}}</small>
+                </article>
+                <article class="input50 form-group">
+                    {{ form_label(formView.ascenseurArrivee, 'Ascenseur arrivée', {'label_attr': {'class': 'form-label mt-4'}}) }}                
+                    {{form_row (formView.ascenseurArrivee)}}
+                </article>
+            </section>
+            <section class="d-flex align-items-center">
+                <article class="input50 form-group">
+                    {{ form_label(formView.volume, 'Volume', {'label_attr': {'class': 'form-label mt-4'}}) }}                
+                    {{form_row (formView.volume)}}
+                    <small id="testV">{{messageVolume}}</small>
+                </article>
+                <article class="input50 form-group">
+                    <a class="text-decoration-none text-white" href="/element"><button type="button" class="btn btn-outline-primary volumeHeight">Calculer un volume</button></a>
+                </article> 
+            </section>
+            {{ form_widget(formView)}}
+            <p>
+                <button class="btn btn-lg btn-warning">DEMANDEZ VOTRE DEVIS GRATUIT</button>
+            </p> 
+            </fieldset>
+            {{ form_end(formView)}}       
+        </article>
+    </section>
+</section>
+<section class="mt-5 ">
+    <h2 class="text-center mb-5 text-primary">Déménager moins cher s'engage sur:</h2>
+    <section class="d-flex justify-content-between">
+        <article class="card text-primary backGround mb-3" style="max-width: 20rem;">
+            <header class="card-header text-center"><img src="image/prix.png" alt=""></header>
+            <div class="card-body">
+                <h3 class="card-title">LE PRIX</h3>
+                <main class="card-text">Les meilleurs rapports qualité/prix</main>
+                <footer class="card-text">Nous vous proposons les meilleures offres du marché grâce à notre réseau élargi de déménageurs professionnels en France.</footer>
+            </div>
+        </article>
+        <article class="card text-primary backGround mb-3" style="max-width: 20rem;">
+            <header class="card-header text-center"><img src="image/concept.png" alt=""></header>
+            <div class="card-body">
+                <h3 class="card-title">Le concept</h3>
+                <main class="card-text">Une nouvelle idée du déménagement</main>
+                <footer class="card-text">Un concept novateur qui vous permet de gagner du temps et de l’argent. Aucune surprise, nos prix sont garantis après réservation.</footer>
+            </div>
+        </article>
+        <article class="card text-primary backGround mb-3" style="max-width: 20rem;">
+            <header class="card-header text-center"><img src="image/qualité.png" alt=""></header>
+             <div class="card-body">
+                <h3 class="card-title">LA QUALITÉ</h3>
+                <main class="card-text">Des déménageurs 100% professionnels</main>
+                <footer class="card-text">Une expérience de plus de 30 ans dans le secteur du déménagement qui fait de nous un gage de confiance et de professionnalisme.</footer>
+            </div>
+        </article>
+    </section>
+</section>
+<section class=" mTop d-flex justify-content-between mb-5">
+    <div class="card text-white bg-primary mb-3 " style="max-width: 20rem;">
+        <div class="card-header bg-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="card-body">
+            <h4 class="card-title">Sophie. H</h4>
+            <p class="card-text">Bonjour, mon déménagement a eu lieu hier et je tiens à vous remercier : professionnalisme, rationalisation optimale du chargement.
+            Continuez comme ça Demenager pas cher !</p>
+        </div>
+    </div>
+    <div class="card text-white bg-primary mb-3 " style="max-width: 20rem;">
+        <div class="card-header bg-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="card-body">
+            <h4 class="card-title">Gania. B</h4>
+            <p class="card-text">Dextérité incontestable, très grand soin dans l'emballage des affaires, gestion du temps excellente, calmes et souriants.
+            Je les recommande vivement.</p>
+        </div>
+    </div>
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header bg-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="card-body">
+            <h4 class="card-title">Victor. Q</h4>
+            <p class="card-text">Nous avons été très satisfaits de l'équipe de Demenager pas cher, de leur professionnalisme et de leur sympathie.
+            Nous recommandons vivement !</p>
+        </div>
+    </div>
+</section>
+<article class=" card text-center colorGrey bg-secondary mb-3 text-primary fs-3">
+<section class="card-header bg-warning text-white text-uppercase">
+{{ textAccueilTF | raw}}
+</section>
+<section>
+{{ textAccueilTexteF | raw}}
+</section>
+</article>
+</main>
+{% endblock %}
+
+{% block js %}
+     <script src="js/localStorage.js"></script>
+{% endblock %}

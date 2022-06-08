@@ -1,0 +1,92 @@
+{% extends 'admin.html.twig' %}
+
+{% block css %}
+	<link rel="stylesheet" href="css/search.css">
+{% endblock %}
+
+{% block body %}
+	<section class="container flex-wrap">
+		<h2 class="text-primary text-center ">EFFECTUER VOS RECHERCHES</h2>
+		<hr>
+		<div class="d-flex justify-content-center">
+			{{ form_start(formId) }}
+			<div class="input-group">
+				<div class="form-outline d-flex">
+					{{ form_label(formId.id, 'N° de devis/facture',{'label_attr': {'class': 'form-label mx-2'}}) }}
+					{{ form_row (formId.id) }}
+				</div>
+				<button class="btn btn-warning h-25">
+					<i class="fas fa-search">Rechercher</i>
+				</button>
+			</div>
+			{{ form_widget(formId) }}
+			{{ form_end(formId) }}
+		</div>
+		<hr>
+		<div class="d-flex justify-content-center">
+			{{ form_start(formNameMail) }}
+			<div class="input-group">
+				<div class="form-outline d-flex">
+					{{ form_label(formNameMail.searchNameMail, 'Nom/email',{'label_attr': {'class': 'form-label mx-2'}}) }}
+					{{ form_row (formNameMail.searchNameMail) }}
+				</div>
+				<button class="btn btn-warning h-25">
+					<i class="fas fa-search">Rechercher</i>
+				</button>
+			</div>
+			{{ form_widget(formNameMail) }}
+			{{ form_end(formNameMail) }}
+		</div>
+		<hr>
+		<div class="d-flex justify-content-center">
+			{{ form_start(formTel) }}
+			<div class="input-group">
+				<div class="form-outline d-flex">
+					{{ form_label(formTel.telephone, 'Téléphone',{'label_attr': {'class': 'form-label mx-2'}}) }}
+					{{ form_row (formTel.telephone) }}
+				</div>
+				<button class="btn btn-warning h-25">
+					<i class="fas fa-search">Rechercher</i>
+				</button>
+			</div>
+			{{ form_widget(formTel) }}
+			{{ form_end(formTel) }}
+		</div>
+		<hr>
+		<div class="d-flex justify-content-center">
+			{{ form_start(formCd) }}
+			<div class="input-group">
+				<div class="form-outline d-flex">
+					{{ form_label(formCd.codePostalDepart, 'Code postal départ',{'label_attr': {'class': 'form-label mx-2'}}) }}
+					{{ form_row (formCd.codePostalDepart) }}
+				</div>
+				<button class="btn btn-warning h-25">
+					<i class="fas fa-search">Rechercher</i>
+				</button>
+			</div>
+			{{ form_widget(formCd) }}
+			{{ form_end(formCd) }}
+		</div>
+		<hr>
+		<div class="d-flex justify-content-center">
+			{{ form_start(formDate) }}
+			<div class="input-group">
+				<div class="form-outline d-flex">
+					{{ form_label(formDate.dateDepart, 'Date de départ',{'label_attr': {'class': 'form-label mx-2'}}) }}
+					{{ form_row (formDate.dateDepart) }}
+				</div>
+				<button class="btn btn-warning h-25">
+					<i class="fas fa-search">Rechercher</i>
+				</button>
+			</div>
+			{{ form_widget(formDate) }}
+			{{ form_end(formDate) }}
+		</div>
+		<hr>
+		<div class="d-grid gap-2">
+			<a class="text-decoration-none text-white" href="{{path('untreated')}}">
+				<button id="aTraiter" class="btn btn-lg btn-primary text-uppercase">Devis à traiter</button>
+			</a>
+		</div>
+	</section>
+{% endblock  %}

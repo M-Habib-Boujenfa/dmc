@@ -1,0 +1,15 @@
+{% extends 'conseil.html.twig'%}
+
+{% block body %}
+<header class="text-center">
+    <h2 class="text-primary">Préparer votre déménagement</h2>
+</header>
+<main>
+    <section class="text-center">
+        <img src="image/preparer.jpg" alt="">
+    </section>
+    <section>
+    {{ textPreparerDem | raw }}
+ </section>
+</main>
+{% endblock %}
